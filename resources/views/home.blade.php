@@ -3,49 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панарин Михаил | Главная</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Главная страница</title>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
-
-    <header class="bg-white shadow-sm border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-indigo-600 tracking-tight">
-                <a href="/">MySiteLogo</a>
-            </div>
-            <nav>
-                <ul class="flex space-x-6 font-medium text-gray-600">
-                    <li><a href="/" class="hover:text-indigo-600 transition">Главная</a></li>
-                    <li><a href="/array" class="hover:text-indigo-600 transition">Массивы</a></li>
-                </ul>
-            </nav>
+<body class="flex min-h-screen flex-col bg-gray-100 text-gray-800">
+    <header class="border-b bg-white">
+        <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
+            <a href="{{ route('home') }}" class="text-lg font-bold">Панарин Михаил</a>
+            <a href="{{ route('array') }}" class="text-blue-700 hover:underline">Список товаров</a>
         </div>
     </header>
 
-    
-    <main class="flex-grow max-w-6xl mx-auto px-4 py-8">
-        <h1 class="text-3xl font-extrabold text-gray-900 mb-6 text-center md:text-left">
-            Добро пожаловать на наш сайт!
-        </h1>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            <div class="overflow-hidden rounded-xl shadow-md">
-                <img src="{{ Vite::asset('resources/images/priroda.avif') }}" alt="Приветственное изображение" class="w-full h-auto object-cover">
+    <main class="mx-auto flex w-full max-w-4xl flex-1 items-center px-4 py-10">
+        <section class="grid items-center gap-6 rounded-lg border bg-white p-6 sm:grid-cols-[1fr_220px]">
+            <div>
+                <h1 class="text-2xl font-bold">Привет! Это мой сайт</h1>
+                <p class="mt-3 leading-7">
+                    Здесь вы можете ознакомиться с моими товарами и услугами. Я стараюсь предоставлять качественные продукты и отличный сервис для всех моих клиентов.
+                </p>
+                <a href="{{ route('array') }}" class="mt-5 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800">
+                    Посмотреть товары
+                </a>
             </div>
-
-            <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+            <img src="{{ asset('images/lake.webp') }}" alt="Горное озеро" class="h-40 w-full rounded object-cover sm:h-36">
+        </section>
     </main>
 
-   
-    <footer class="bg-gray-900 text-gray-400 py-6 mt-auto">
-        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
-            <p>&copy; {{ date('Y') }} | Приданников Никита | Все права защищены.</p>
+    <footer class="border-t bg-white">
+        <div class="mx-auto max-w-4xl px-4 py-4 text-sm text-gray-600">
+            &copy; {{ date('Y') }} Панарин Михаил
         </div>
     </footer>
-
 </body>
 </html>

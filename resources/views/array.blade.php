@@ -1,49 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Товары | Панарин Михаил</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-      
-    <main class="flex-grow w-full px-4 py-8">
-        <h1 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">Список продуктов</h1>
-        
-
-        <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-            
-            @foreach($array as $item)
-
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col w-full">
-                    
-               
-                    <div class="relative h-48 w-full bg-gray-100 overflow-hidden">
-                        <img src="{{ Vite::asset('resources/images/' . $item['path']) }}" class="w-full h-full object-cover">
-                    </div>
-
-                 
-                    <div class="p-5 flex flex-col flex-grow justify-betwee">
-                        <div>
-                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">ID: {{ $item['id'] }}</span>
-                            <h3 class="text-xl font-bold text-gray-800 mt-1 mb-2">{{ $item['title'] }}</h3>
-                        </div>
-                        
-                        <div class="flex justify-between items-center mt-4">
-                            <p class="text-xl font-black text-indigo-600">{{ $item['price'] }} &#8381;</p>
-                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
-                                Купить
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            @endforeach
-
+<body class="flex min-h-screen flex-col bg-gray-100 text-gray-800">
+    <header class="border-b bg-white">
+        <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
+            <a href="{{ route('home') }}" class="text-lg font-bold">Панарин Михаил</a>
+            <a href="{{ route('home') }}" class="text-blue-700 hover:underline">На главную</a>
         </div>
-        <a href="/home" class="text-">Домой</a>
+    </header>
+
+    <main class="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+        <section class="rounded-lg border bg-white p-5">
+            <h1 class="text-2xl font-bold">Список товаров</h1>
+            <p class="mt-2 text-gray-600">Можно перемешать, отсортировать или отфильтровать список.</p>
+
+            <nav aria-label="Действия с массивом" class="mt-5 flex flex-wrap gap-3">
+                <a href="{{ route('array.shuffle') }}" class="rounded border border-gray-300 px-3 py-2 text-sm hover:bg-gray-100">
+                    Перемешать массив
+                </a>
+                <a href="{{ route('array.sort') }}" class="rounded border border-gray-300 px-3 py-2 text-sm hover:bg-gray-100">
+                    Сортировать массив (по цене по возрастанию)
+                </a>
+                <a href="{{ route('array.filter') }}" class="rounded border border-gray-300 px-3 py-2 text-sm hover:bg-gray-100">
+                    Отфильтровать массив (оставить только товары, у которых цена больше 1000)
+                </a>
+            </nav>
+        </section>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            @foreach($array as $item)
+                <article class="flex gap-4 rounded-lg border bg-white p-4">
+                    <img src="{{ asset('images/' . $item['path']) }}" alt="{{ $item['title'] }}" class="h-24 w-28 rounded object-cover">
+                    <div>
+                        <p class="text-sm text-gray-500">ID: {{ $item['id'] }}</p>
+                        <h2 class="mt-1 font-semibold">{{ $item['title'] }}</h2>
+                        <p class="mt-2 text-blue-700">{{ $item['price'] }} &#8381;</p>
+                    </div>
+                </article>
+            @endforeach
+        </div>
     </main>
 
+    <footer class="border-t bg-white">
+        <div class="mx-auto max-w-4xl px-4 py-4 text-sm text-gray-600">
+            &copy; {{ date('Y') }} Панарин Михаил
+        </div>
+    </footer>
 </body>
 </html>
