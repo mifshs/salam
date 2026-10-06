@@ -11,13 +11,13 @@ class MainController extends Controller
      */
     public array $array = [
         ['id' => 1, 'title' => 'продукт 1', 'price' => 500, 'path' => 'lake.webp'],
-        ['id' => 2, 'title' => 'продукт 2', 'price' => 1500, 'path' => 'mountains.avif'],
+        ['id' => 2, 'title' => 'продукт 2', 'price' => 1700, 'path' => 'mountains.avif'],
         ['id' => 3, 'title' => 'продукт 3', 'price' => 1500, 'path' => 'lake.webp'],
-        ['id' => 4, 'title' => 'продукт 4', 'price' => 1500, 'path' => 'lake.webp'],
-        ['id' => 5, 'title' => 'продукт 5', 'price' => 1500, 'path' => 'lake.webp'],
-        ['id' => 6, 'title' => 'продукт 6', 'price' => 1500, 'path' => 'mountains.avif'],
-        ['id' => 7, 'title' => 'продукт 7', 'price' => 1500, 'path' => 'mountains.avif'],
-        ['id' => 8, 'title' => 'продукт 8', 'price' => 1500, 'path' => 'mountains.avif'],
+        ['id' => 4, 'title' => 'продукт 4', 'price' => 3500, 'path' => 'lake.webp'],
+        ['id' => 5, 'title' => 'продукт 5', 'price' => 4500, 'path' => 'lake.webp'],
+        ['id' => 6, 'title' => 'продукт 6', 'price' => 5500, 'path' => 'mountains.avif'],
+        ['id' => 7, 'title' => 'продукт 7', 'price' => 5900, 'path' => 'mountains.avif'],
+        ['id' => 8, 'title' => 'продукт 8', 'price' => 7500, 'path' => 'mountains.avif'],
     ];
 
     public function showIndex(): View
@@ -43,16 +43,24 @@ class MainController extends Controller
         $array = $this->array;
         usort($array, fn (array $first, array $second): int => $first['price'] <=> $second['price']);
 
-        return view('array', compact('array'));
+        return view('array', ['array' => $array]);
     }
 
     public function filterArray(): View
     {
-        $array = array_values(array_filter(
-            $this->array,
-            fn (array $item): bool => $item['price'] > 1000,
-        ));
+        $array = array_filter($this->array, function($item){
+            return $item['price'] > 100;
+        });
 
-        return view('array', compact('array'));
+        return view('array', ['array' => $array]);
+    }
+
+    public function filterArray1(): View
+    {
+        $array = array_filter($this->array, function($item) {
+              return $item['price'] > 2000 && $item['price'] < 6000;
+        });
+
+        return view('array', ['array' => $array]);
     }
 }

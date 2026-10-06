@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Панарин Михаил | Главная</title>
+    <title>Главная</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="flex min-h-screen flex-col bg-gray-100 text-gray-800">
@@ -15,7 +15,7 @@
     </header>
 
     <main class="mx-auto flex w-full max-w-4xl flex-1 items-center px-4 py-10">
-        <section class="grid items-center gap-6 rounded-lg border bg-white p-6 sm:grid-cols-[1fr_220px]">
+        <section class="grid items-center gap-6 rounded-lg border bg-white p-6">
             <div>
                 <h1 class="text-2xl font-bold">Привет! Это мой сайт</h1>
                 <p class="mt-3 leading-7">
@@ -25,7 +25,7 @@
                     Посмотреть товары
                 </a>
             </div>
-            <img src="{{ asset('images/lake.webp') }}" alt="Горное озеро" class="h-40 w-full rounded object-cover sm:h-36">
+            <img src="{{ asset('images/lake.webp') }}" alt="Горное озеро" class="h-40 w-full rounded object-cover">
         </section>
     </main>
 
