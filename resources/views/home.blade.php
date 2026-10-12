@@ -6,31 +6,24 @@
     <title>Главная</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="flex min-h-screen flex-col bg-gray-100 text-gray-800">
+<body>
     <header class="border-b bg-white">
-        <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-            <a href="{{ route('home') }}" class="text-lg font-bold">Панарин Михаил</a>
+        <div class="flex items-center py-5 mx-auto max-w-full justify-center">
             <a href="{{ route('array') }}" class="text-blue-700 hover:underline">Список товаров</a>
         </div>
     </header>
 
-    <main class="mx-auto flex w-full max-w-4xl flex-1 items-center px-4 py-10">
-        <section class="grid items-center gap-6 rounded-lg border bg-white p-6">
-            <div>
-                <h1 class="text-2xl font-bold">Привет! Это мой сайт</h1>
-                <p class="mt-3 leading-7">
-                    Здесь вы можете ознакомиться с моими товарами и услугами. Я стараюсь предоставлять качественные продукты и отличный сервис для всех моих клиентов.
-                </p>
-                <a href="{{ route('array') }}" class="mt-5 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800">
-                    Посмотреть товары
-                </a>
+    <main class="flex max-w-full justify-content-center align-items-center min-h-[85vh]">
+        <section class="flex items-center justify-center content-center w-screen bg-blue-200">
+            <div class="flex justify-content-center align-items-center w-fit py-5 px-5 border-3 border-blue-300 bg-blue-400 rounded-3xl position-relative gap-35">
+                <h1 class="text-xl justify-content-center items-center flex">Список товаров</h1>
+                <img src="{{ asset('images/lake.webp') }}" alt="Горное озеро" class="h-100 rounded-3xl">
             </div>
-            <img src="{{ asset('images/lake.webp') }}" alt="Горное озеро" class="h-40 w-full rounded object-cover">
         </section>
     </main>
 
-    <footer class="border-t bg-white">
-        <div class="mx-auto max-w-4xl px-4 py-4 text-sm text-gray-600">
+    <footer class="border-t flex justify-center h-10">
+        <div class="flex">
             &copy; {{ date('Y') }} Панарин Михаил
         </div>
     </footer>
