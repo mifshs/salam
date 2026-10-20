@@ -17,8 +17,12 @@ class ReportFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = \Faker\Factory::create('ru_RU');
         return [
-            //
+            'number' => $faker->numerify('aaa-###'),
+            'description' => $faker->paragraph(),
+            'created_at' => $faker->dateTimeBetween('-1 week', 'now'),
+            'status_id' => 1
         ];
     }
 }

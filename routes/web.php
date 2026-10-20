@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Image\Transformations\Rotate;
@@ -35,3 +36,5 @@ Route::get('/reports/create', [ReportController::class, 'showCreate'])->name('cr
 
 Route::get('/reports/{report}/edit', [ReportController::class , 'edit'])->name('reports.edit');
 Route::put('/reports/{report}', [ReportController::class, 'update'])->name('reports.update');
+
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
