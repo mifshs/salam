@@ -34,4 +34,4 @@ Route::post('/reports', [ReportController::class, 'store'])->name('reports.store
 Route::get('/reports/create', [ReportController::class, 'showCreate'])->name('create');
 
 Route::get('/reports/{report}/edit', [ReportController::class , 'edit'])->name('reports.edit');
-Route::get('/reports/{report}', [ReportController::class, 'update'])->name('reports.update');
+Route::put('/reports/{report}', [ReportController::class, 'update'])->name('reports.update');

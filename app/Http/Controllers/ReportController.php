@@ -28,7 +28,7 @@ class ReportController extends Controller
         ]);
 
         $report->create($data);
-        return redirect()->back();
+        return redirect()->route('reports.index');
     }
 
     public function showCreate(): View
@@ -38,7 +38,7 @@ class ReportController extends Controller
 
     public function edit(Report $report)
     {
-        return view('reports.edit', compact('report'));
+        return view('report.edit', compact('report'));
     }
 
     public function update(Request $request, Report $report)
@@ -49,6 +49,6 @@ class ReportController extends Controller
         ]);
 
         $report->update($data);
-        return redirect()->back();
+        return redirect()->route('reports.index');
     }
 }
