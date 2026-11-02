@@ -12,7 +12,7 @@ class ReportController extends Controller
     public function index(Request $request)
     {
         $sort =$request->input('sort');
-        if($sort != 'asc' || $sort != 'desc')
+        if($sort != 'asc' && $sort != 'desc')
         {
             $sort = 'desc'; 
         }

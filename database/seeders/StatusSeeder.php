@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class StatusSeeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,13 +16,13 @@ class StatusSeeeder extends Seeder
         DB::table('statuses')->insert(
             [
                 [
-                    'name' => 'new'
+                    'name' => "новое"
                 ],
                 [
-                    'name' => 'confirmed'
+                    'name' => "подтверждено"
                 ],
                 [
-                    'name' => 'denied'
+                    'name' => "отклонено"
                 ]
             ]
         );

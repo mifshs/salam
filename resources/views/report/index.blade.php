@@ -31,6 +31,7 @@
                 <h1>Номер автомобиля: {{ $report['number'] }}</h1>
                 <h2>Описание: {{ $report['description'] }}</h2>
                 <h3>Дата создания: {{ $report['created_at'] }}</h3>
+                <p>Статус: {{ $report->status->name }}</p>
             </div>
             
             <div class="flex gap-4 mt-4">
