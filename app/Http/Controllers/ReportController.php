@@ -38,14 +38,15 @@ class ReportController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request, Report $report)
+    public function store(Request $request)
     {
-        $data = $request -> validate([
+        $data = $request->validate([
             'number' => 'string',
             'description' => 'string',
         ]);
+        $data['status_id'] = Status::first()?->id ?? 1;
 
-        $report->create($data);
+        Report::create($data);
         return redirect()->route('reports.index');
     }
 

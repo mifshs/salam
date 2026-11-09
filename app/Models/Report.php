@@ -13,7 +13,9 @@ class Report extends Model
     use SoftDeletes, HasFactory;
     protected $fillable = [
         'number',
-        'description'
+        'description',
+        'status_id',
+        'user_id'
     ];
 
     public function user(): BelongsTo
