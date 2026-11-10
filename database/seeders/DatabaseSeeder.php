@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
             StatusSeeder::class,
         ]);
 
+        $this->call([
+            ReportSeeder::class,
+        ]);
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

@@ -7,6 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+    <x-app-layout>
     <h1>Все заявки</h1> 
     <a href="{{ route('create') }}" class="px-5 py-5 bg-blue-500 rounded">Создать заявку</a>
     <div class="mt-10 flex flex-col px-5 py-5 bg-blue-100 gap-5 justify-center items-center">
@@ -45,8 +46,9 @@
             </div>
         </div>
         @endforeach
-        {{$reports->appends(request()->query())->links()}}
 
     </div>
+    {{$reports->appends(request()->query())->links()}}
+    </x-app-layout>
 </body>
 </html>
