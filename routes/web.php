@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ReportController;
+use App\Http\Middleware\Admin;
 use Illuminate\Image\Transformations\Rotate;
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Expr\FuncCall;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,6 +17,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware((Admin::class))->group(function(){
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,5 +52,6 @@ Route::get('/array/filter', [MainController::class, 'filterArray'])->name('array
 Route::get('/array/filter1', [MainController::class, 'filterArray1'])->name('array.filter1');
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+
 
 require __DIR__.'/auth.php';
