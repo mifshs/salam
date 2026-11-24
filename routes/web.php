@@ -54,5 +54,12 @@ Route::get('/array/filter1', [MainController::class, 'filterArray1'])->name('arr
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 
+Route::get('/index', [ReportController::class, 'index'])->middleware('auth');
+
+
+Route::get('/second', function() {
+    return view('second');
+});
+
 
 require __DIR__.'/auth.php';

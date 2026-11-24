@@ -7,6 +7,8 @@ use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Laravel\Mcp\Enums\Role;
 
 class ReportController extends Controller
 {
@@ -89,7 +91,7 @@ class ReportController extends Controller
     public function statusUpdate(Request $request, Report $report)
     {
         $request -> validate([
-            'status_id' => 'required|exists:statuses,id',
+            'status_id' => 'required|exists:statuses,id'
         ]);
         $report->update($request->only(['status_id']));
         return redirect() -> back();

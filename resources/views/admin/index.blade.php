@@ -22,7 +22,7 @@
                         Статус заявки
                         <select name="status_id" id="status_id" class="h-10">
                             @foreach($statuses as $status)
-                            <option value="{{$status->id}}" {{$status->id === $report->status_id ? 'selected' : ''}} >
+                            <option value="{{$status->id}}" {{$status->id === $report->status_id ? 'selected' : ''}} {{ $status->id === 1 ? 'disabled' : '' }} >
                                 {{$status->name}}
                             </option>
                             @endforeach
